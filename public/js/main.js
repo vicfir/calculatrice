@@ -83,15 +83,32 @@ btn3.addEventListener("click", ()=>{
 //4
 let btn4 = document.querySelectorAll("button")[7];
 let btnOperators2 = document.querySelectorAll("#operatorsExo4 > .m-1");
-let operatorDisplay2 = document.querySelector('#exo-4 > .box-body > span > i')
+let operatorDisplay2 = document.querySelector('#exo-4 > .box-body > span > i');
+
+let operator = false;
 
 for (let i = 0; i < btnOperators2.length; i++) {
     btnOperators2[i].addEventListener('click',()=>{
         operatorDisplay2.setAttribute("class", btnOperators2[i].children[0].className);
+        operator = true;
     })  
 }
 
-let btnNumbers = 
+let btnNumbers = document.querySelectorAll("#numbersExo4 > .m-1");
+
+for (let i = 0; i < btnNumbers.length; i++) {
+    btnNumbers[i].addEventListener('click',()=>{
+        let firstNum4 = document.querySelectorAll("input")[6];
+        let secoundNum4 = document.querySelectorAll("input")[7];
+        
+        operator? secoundNum4.value += btnNumbers[i].textContent.trim() : firstNum4.value += btnNumbers[i].textContent.trim();
+
+        
+        
+        console.log( firstNum4.value);
+        console.log(typeof btnNumbers[i].textContent);
+    })    
+}
 
 btn4.addEventListener("click", ()=>{
     let firstNum4 = document.querySelectorAll("input")[6];
@@ -118,4 +135,7 @@ btn4.addEventListener("click", ()=>{
             console.log("error");
             break;
     }
+    firstNum4.value = null;
+    secoundNum4.value = null;
+    operator = false;
 })
