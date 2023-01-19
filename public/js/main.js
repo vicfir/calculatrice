@@ -47,10 +47,13 @@ let operator2 = document.getElementById("operatorsExo3");
 let operatorDisplay = document.querySelector("#operatorsExo3 > span > i");
 console.log(operatorDisplay);
 
+let btnOperators = document.querySelectorAll("#operatorsExo3 > .m-1");
+console.log(btnOperators);
 
-for (let i = 0; i < operator2.children.length; i++) {
-    operator2.children[i].addEventListener("click", ()=>{
-        operatorDisplay.setAttribute("class", operator2.children[i].children[0].className);
+
+for (let i = 0; i < btnOperators.length; i++) {
+    btnOperators[i].addEventListener("click", ()=>{
+        operatorDisplay.setAttribute("class", btnOperators[i].children[0].className);
     })
 }
 
@@ -59,12 +62,20 @@ btn3.addEventListener("click", ()=>{
     let secoundNum3 = Number(document.querySelectorAll("input")[5].value);
 
     let response3 = document.getElementById("response3");
-    
+
     switch (operatorDisplay.className) {
         case "fas fa-plus":
-            
+            response3.textContent=`${firstNum3 + secoundNum3}`
             break;
-    
+        case "fas fa-minus":
+            response3.textContent=`${firstNum3 - secoundNum3}`
+            break;
+        case "fas fa-times":
+            response3.textContent=`${firstNum3 * secoundNum3}`
+            break;
+        case "fas fa-divide":
+            response3.textContent=`${firstNum3 / secoundNum3}`
+            break;
         default:
             break;
     }
