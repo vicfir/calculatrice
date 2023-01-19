@@ -45,10 +45,8 @@ let btn3 = document.querySelectorAll("button")[2];
 let operator2 = document.getElementById("operatorsExo3");
 
 let operatorDisplay = document.querySelector("#operatorsExo3 > span > i");
-console.log(operatorDisplay);
 
 let btnOperators = document.querySelectorAll("#operatorsExo3 > .m-1");
-console.log(btnOperators);
 
 
 for (let i = 0; i < btnOperators.length; i++) {
@@ -77,6 +75,47 @@ btn3.addEventListener("click", ()=>{
             response3.textContent=`${firstNum3 / secoundNum3}`
             break;
         default:
+            console.log("error");
+            break;
+    }
+})
+
+//4
+let btn4 = document.querySelectorAll("button")[7];
+let btnOperators2 = document.querySelectorAll("#operatorsExo4 > .m-1");
+let operatorDisplay2 = document.querySelector('#exo-4 > .box-body > span > i')
+
+for (let i = 0; i < btnOperators2.length; i++) {
+    btnOperators2[i].addEventListener('click',()=>{
+        operatorDisplay2.setAttribute("class", btnOperators2[i].children[0].className);
+    })  
+}
+
+let btnNumbers = 
+
+btn4.addEventListener("click", ()=>{
+    let firstNum4 = document.querySelectorAll("input")[6];
+    let secoundNum4 = document.querySelectorAll("input")[7];
+    let firstNum4v = Number(document.querySelectorAll("input")[6].value);
+    let secoundNum4v = Number(document.querySelectorAll("input")[7].value);
+
+    let response4 = document.getElementById("response4");
+
+    switch (operatorDisplay2.className) {
+        case "fas fa-plus":
+            response4.textContent=`${firstNum4v + secoundNum4v}`
+            break;
+        case "fas fa-minus":
+            response4.textContent=`${firstNum4v - secoundNum4v}`
+            break;
+        case "fas fa-times":
+            response4.textContent=`${firstNum4v * secoundNum4v}`
+            break;
+        case "fas fa-divide":
+            response4.textContent=`${firstNum4v / secoundNum4v}`
+            break;
+        default:
+            console.log("error");
             break;
     }
 })
